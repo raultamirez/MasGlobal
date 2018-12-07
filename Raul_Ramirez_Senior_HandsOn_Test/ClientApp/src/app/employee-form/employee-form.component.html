@@ -1,0 +1,31 @@
+<form #f="ngForm" novalidate>
+  <h2>Employee</h2>
+  <div class="form-group">
+    <label for="Id">Id</label>
+    <input id="Id" type="text" class="form-control" [(ngModel)]="employee.id" name="id" required #employee.id="ngModel">
+  </div>
+  <button class="btn btn-primary" (click)="search()">Search</button>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let c of columns">
+            <div>
+              {{ c.title }}
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of rows">
+          <td>{{ r.id }}</td>
+          <td>{{ r.name }}</td>
+          <td>{{ r.contractTypeName }}</td>
+          <td>{{ r.roleName }}</td>
+          <td>{{ r.roleDescription }}</td>
+          <td>{{ r.salary }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
